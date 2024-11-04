@@ -1,0 +1,4 @@
+test_scripts/venv
+test_scripts/__pycache__
+
+test_scripts/services/__pycache__

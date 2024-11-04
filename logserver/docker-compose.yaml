@@ -1,0 +1,83 @@
+version: "3.0"
+
+networks:
+  demo-logst:
+
+services:
+
+  mongo-logst:
+    image: mongo:6.0.14
+    container_name: demo-mongo-logst
+    hostname: mongo-logst
+    networks:
+      - demo-logst
+    volumes:
+      - ./mongo.init.js:/docker-entrypoint-initdb.d/mongo.init.js
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+  
+  bu-service:
+    image: ghcr.io/larc-logs-transparentes/bu-service:gh-73
+    container_name: demo-logst-bu-service
+    hostname: bu-service
+    pull_policy: always
+    depends_on:
+      - mongo-logst
+      - tlmanager
+    networks:
+      - demo-logst
+    ports:
+      - 9090:9090
+    environment:
+      MONGO_URL: "mongodb://buuser:bupassword@mongo-logst/bu_service"
+      TL_MANAGER_URL: "http://tlmanager:8000"
+      TREE_NAME_PREFIX: "eleicao_"
+      TREE_DEFAULT_COMMITMENT_SIZE: 8
+
+    
+  back-pub:
+    image: ghcr.io/larc-logs-transparentes/back-pub:gh-73
+    container_name: demo-logst-back-pub
+    hostname: back-pub
+    pull_policy: always
+    depends_on:
+      - mongo-logst
+      - tlmanager
+    networks:
+      - demo-logst
+    volumes:
+      - ./backend.public.config.json:/app/src/config.json
+    ports:
+      - 8080:8080
+
+
+  frontend:
+    image: ghcr.io/larc-logs-transparentes/frontend:gh-73
+    container_name: demo-logst-frontend
+    hostname: frontend
+    pull_policy: always
+    depends_on:
+      - back-pub
+    networks:
+      - demo-logst
+    ports:
+      - 3000:80
+
+
+  tlmanager:
+    image: ghcr.io/larc-logs-transparentes/tlmanager:gh-73
+    container_name: demo-tlmanager
+    hostname: tlmanager
+    pull_policy: always
+    depends_on:
+      - mongo-logst
+    networks:
+      - demo-logst
+    ports:
+      - 8000:8000
+    environment:
+      URL: "mongodb://tluser:tlpassword@mongo-logst:27017/tlmanager"
+
