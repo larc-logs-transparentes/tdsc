@@ -1,7 +1,7 @@
 from services.tl_manager_adapter import *
+from pymerkle_logsTransparentes import MerkleTree
 
 import time
-from verify_bus import _build_tree_continuously
 import pandas as pd
 
 
@@ -12,6 +12,15 @@ def get_global_tree_leaves_with_tree_name(global_tree_leaves, tree_name):
         if leave.get('value').get('tree_name') == tree_name:
             leaves_with_tree_name.append(leave)
     return leaves_with_tree_name
+
+def _build_tree_continuously(list_of_data, m_tree=None):
+    if m_tree is None:
+        m_tree = MerkleTree()
+
+    for data in list_of_data:
+        m_tree.append_entry(data)
+    return m_tree
+
 
 
 # Measure the rebuild time of a local tree
@@ -28,7 +37,7 @@ if __name__ == "__main__":
 
         samples = []
         for i in range(0, samples_per_tree):
-            start = time.time()
+            start = time.perf_counter()
             local_tree = None
             start_index = 0
             for global_tree_leaf in leaves_in_global_tree:
@@ -44,8 +53,16 @@ if __name__ == "__main__":
                     break
 
                 start_index = end_index
-            end = time.time()
-            samples.append(end - start)
+            end = time.perf_counter()
+            interval = (end - start)*1000
+            samples.append(interval)
         df.loc[size] = samples
-        print(f'Mean time to rebuild tree {tree_name}: {df.loc[size].mean()}')
+        mean = df.loc[size].mean()
+        median = df.loc[size].median()
+        std = df.loc[size].std()
+        print(f'{tree_name}')
+        print(f'mean: {mean:.3f} ms')
+        print(f'std: {std:.3f} ms;  {std*100/mean:.1f} %')
+        print(f'median: {median:.3f} ms')
+        print('')
     df.to_csv('rebuild_tree.csv')

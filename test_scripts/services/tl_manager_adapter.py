@@ -4,7 +4,7 @@ TL_MANAGER_URL = 'http://127.0.0.1:8000'
 
 
 def get_trees():
-    tree__leaves = [1000, 10000, 100000, 1000000, 10000000]
+    tree__leaves = [1000, 10000, 100000, 1000000]
     trees = {}
     for size in tree__leaves:
         tree_name = f'tree_{size}'
