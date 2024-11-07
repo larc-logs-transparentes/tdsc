@@ -4,7 +4,7 @@ TL_MANAGER_URL = 'http://127.0.0.1:8000'
 
 
 def get_trees():
-    tree__leaves = [1000, 10000, 100000, 1000000, 10000000]
+    tree__leaves = [1000, 10000, 100000, 500000, 1000000]
     trees = {}
     for size in tree__leaves:
         tree_name = f'tree_{size}'
@@ -22,17 +22,3 @@ def commit_tree(tree_name):
 
 def insert_leaf(tree_name, data):
     return requests.post(f'{TL_MANAGER_URL}/insert-leaf', json={"tree_name": tree_name, "data": data})
-
-
-def get_data_proof(tree_name, index):
-    return requests.get(f'{TL_MANAGER_URL}/data-proof?tree_name={tree_name}&index={index}').json()
-
-
-def get_trustable_global_tree_root():
-    return requests.get(f'{TL_MANAGER_URL}/tree/root?tree_name=global_tree').json()
-
-def get_all_leaf_data_global_tree():
-    return requests.get(f'{TL_MANAGER_URL}/global-tree/all-leaf-data').json()
-
-def get_all_consistency_proof(tree_name):
-    return requests.get(f'{TL_MANAGER_URL}/all-consistency-proof?tree_name={tree_name}').json()

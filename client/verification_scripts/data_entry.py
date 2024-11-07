@@ -1,6 +1,6 @@
 from tlverifier.merkle_functions.tl_functions import verify_data_entry
-from verification_scripts.tl_manager_adapter import *
-from verification_scripts.utils import *
+from service.tl_manager_adapter import *
+from service.utils import *
 import time
 import pandas as pd
 

@@ -5,7 +5,7 @@ TL_MANAGER_URL = os.getenv("TL_MANAGER_URL", "http://localhost:8080")
 
 
 def get_trees():
-    tree__leaves = [1000, 10000, 100000, 1000000]
+    tree__leaves = [1000, 10000, 100000, 500000, 1000000]
     trees = {}
     for size in tree__leaves:
         tree_name = f'tree_{size}'

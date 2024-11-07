@@ -1,5 +1,5 @@
-from verification_scripts.tl_manager_adapter import *
-from verification_scripts.utils import *
+from service.tl_manager_adapter import *
+from service.utils import *
 from pymerkle_logsTransparentes import MerkleTree
 import time
 import pandas as pd
