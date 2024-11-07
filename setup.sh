@@ -1,3 +1,5 @@
+#### Install Docker and Docker dompose
+
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -15,5 +17,7 @@ sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+
+## Install other dependencies
 sudo apt install -y python3.10-venv
 sudo apt-get install -y unzip

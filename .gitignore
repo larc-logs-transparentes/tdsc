@@ -1,9 +1,10 @@
-test_scripts/venv
-test_scripts/__pycache__
-test_scripts/data
-test_scripts/services/__pycache__
+client/.venv
+client/data
+
 
 logserver/data/
+logserver/.venv
 logserver/out.txt
-logserver/scripts/__pycache__
-venv
+
+.venv
+**/__pycache__/
