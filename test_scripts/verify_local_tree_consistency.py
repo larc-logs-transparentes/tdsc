@@ -24,9 +24,9 @@ if __name__ == "__main__":
         samples = []
         all_consistency_proof = get_all_consistency_proof(tree_name)
         for i in range(0, samples_per_tree):
-            start = time.time()
+            start = time.perf_counter()
             result = verify_local_tree_history_consistency(all_leaf_global, all_consistency_proof, global_tree_root, tree_name)
-            end = time.time()
+            end = time.perf_counter()
             interval = (end - start)*1000
             samples.append(interval)
             if not result['success']:

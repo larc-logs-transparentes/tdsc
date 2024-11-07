@@ -13,7 +13,7 @@ echo \
 sudo apt-get update
 
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo apt install -y python3.10-venv
-sudo apt-get install unzip
+sudo apt-get install -y unzip

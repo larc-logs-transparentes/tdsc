@@ -1,6 +1,6 @@
 test_scripts/venv
 test_scripts/__pycache__
-
+test_scripts/data
 test_scripts/services/__pycache__
 
 logserver/data/

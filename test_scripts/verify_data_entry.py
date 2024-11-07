@@ -39,4 +39,4 @@ if __name__ == "__main__":
         print('')
 
 
-    df.to_csv('data_entry_verification.csv')
+    df.to_csv('data/data_entry_verification.csv')
