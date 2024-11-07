@@ -4,4 +4,6 @@ test_scripts/__pycache__
 test_scripts/services/__pycache__
 
 logserver/data/
+logserver/out.txt
+logserver/scripts/__pycache__
 venv
