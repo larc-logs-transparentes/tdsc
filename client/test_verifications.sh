@@ -1,1 +1,0 @@
-TL_MANAGER_URL=http://10.108.0.3:8000 python3 test_verifications.py --sample_size=50
