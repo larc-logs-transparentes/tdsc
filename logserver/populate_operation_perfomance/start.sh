@@ -1,5 +1,3 @@
-docker compose up -d
-
 cd ../..
 source .venv/bin/activate
 
