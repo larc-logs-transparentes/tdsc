@@ -15,10 +15,14 @@ if __name__ == "__main__":
 
 
     cprint("================ Download ===========================================", 'green')
-    download.download(samples_per_tree=args.sample_size)
+    download.download(sample_size=args.sample_size)
 
-    # cprint("===================== Verify tree ===================================", 'green')
-    # df = local_tree_consistency.verify(samples_per_tree=args.sample_size)
+    cprint("===================== Verify tree    ==================================", 'green')
+    verify_tree.verify(sample_size=args.sample_size)
 
-    # cprint("===================== Verify build tree     =========================", 'green')
-    # df = build_tree.verify(samples_per_tree=args.sample_size)
+    cprint("================ Preprocess ===========================================", 'green')
+    preprocess.preprocess(sample_size=args.sample_size)
+
+    cprint("================    Tally     ===========================================", 'green')
+    tally.tally(sample_size=args.sample_size)
+

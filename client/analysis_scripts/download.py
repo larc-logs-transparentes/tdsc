@@ -8,10 +8,10 @@ import os
 
 
 
-def download(samples_number):
-    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, samples_number)])
+def download(sample_size):
+    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, sample_size)])
     samples = []
-    for i in range(0, samples_number):
+    for i in range(0, sample_size):
         if os.path.exists("./data/trees/eleicao_545"):
             shutil.rmtree("./data/trees/eleicao_545")
         print(f'Testing sample: {i}')

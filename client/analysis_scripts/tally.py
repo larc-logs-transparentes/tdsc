@@ -9,10 +9,10 @@ from analysis_scripts.tl_sum.src.bu_functions import soma_votos
 
 
 
-def verify(samples_number):
-    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, samples_number)])
+def tally(sample_size):
+    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, sample_size)])
     samples = []
-    for i in range(0, samples_number):
+    for i in range(0, sample_size):
         print(f'\nTesting sample: {i}')
         files, bus_json = get_json_data_from_dir(Path('./data/preprocessed_bu_jsons/eleicao_545'))
         start = time.perf_counter()
@@ -27,5 +27,5 @@ def verify(samples_number):
 
 
 if __name__ == "__main__":
-    verify(50)
+    tally(50)
     

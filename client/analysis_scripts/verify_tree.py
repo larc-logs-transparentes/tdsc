@@ -5,11 +5,11 @@ from service.utils import *
 
 
 
-def verify(samples_number):
-    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, samples_number)])
+def verify(sample_size):
+    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, sample_size)])
     samples = []
-    for i in range(0, samples_number):
-        print(f'Testing sample: {i}')
+    for i in range(0, sample_size):
+        print(f'\nTesting sample: {i}')
         start = time.perf_counter()
         verify_tree("eleicao_545")
         end = time.perf_counter()

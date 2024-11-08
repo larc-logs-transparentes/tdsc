@@ -7,11 +7,11 @@ from analysis_scripts.tl_preprocessor.src.bu_preprocessor import preprocess_bus
 
 
 
-def verify(samples_number):
-    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, samples_number)])
+def preprocess(sample_size):
+    df = pd.DataFrame(index=[0], columns=[f'sample_{i}' for i in range(0, sample_size)])
     samples = []
-    for i in range(0, samples_number):
-        print(f'Testing sample: {i}')
+    for i in range(0, sample_size):
+        print(f'\nTesting sample: {i}')
         start = time.perf_counter()
         preprocess_bus('./data/trees/eleicao_545', './data/preprocessed_bu_jsons/eleicao_545')
         end = time.perf_counter()
@@ -19,10 +19,10 @@ def verify(samples_number):
         samples.append(interval)
 
     df.loc[0] = samples
-    print_statistics("Test preprocess", df.loc[0].mean(), df.loc[0].std(), df.loc[0].median() )
+    print_statistics("\nTest preprocess", df.loc[0].mean(), df.loc[0].std(), df.loc[0].median() )
     df.to_csv('data/preprocess.csv')
 
 
 if __name__ == "__main__":
-    verify(50)
+    preprocess(50)
     
