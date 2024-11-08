@@ -1,5 +1,5 @@
 # from tl_downloader.src.download_bu import download_bu, ask_user_which_election
-from tl_downloader.download_bu import download_bu
+from analysis_scripts.tl_downloader.download_bu import download_bu
 import time
 import pandas as pd
 from service.utils import *

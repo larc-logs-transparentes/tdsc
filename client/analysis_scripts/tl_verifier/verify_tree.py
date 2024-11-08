@@ -3,7 +3,7 @@ import datetime
 import json
 import os
 
-from utils.data_access_bu import get_bu_from_to_ids, get_global_tree_leaves_list, get_tree_data, get_all_local_tree_names
+from analysis_scripts.utils.data_access_bu import get_bu_from_to_ids, get_global_tree_leaves_list, get_tree_data, get_all_local_tree_names
 from pymerkle_logsTransparentes import MerkleTree
 
 

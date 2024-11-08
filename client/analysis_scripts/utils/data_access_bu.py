@@ -2,7 +2,7 @@ import json
 import requests
 import os
 
-from config import BACKEND_URL
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8080")
 
 # Constants
 DIR_PATH_TREES = 'data/trees/'

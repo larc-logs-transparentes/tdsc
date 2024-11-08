@@ -3,8 +3,12 @@ import json
 import os
 import requests
 
-from utils.data_access_bu import get_all_local_tree_names
-from config import BACKEND_URL
+from analysis_scripts.utils.data_access_bu import get_all_local_tree_names
+
+
+
+TL_MANAGER_URL = os.getenv("TL_MANAGER_URL", "http://localhost:8080")
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8080")
 
 # Constants
 DIR_DL_PATH_TREES = './data/trees/'

@@ -4,11 +4,11 @@ import os
 import base64
 import time
 import json
-from utils.json_utils import get_json_data_from_file
+from analysis_scripts.utils.json_utils import get_json_data_from_file
 from timeit import default_timer as timer
 from .args_parser import parser
 
-ASN1_SPECS_BU = "tl_preprocessor/gov_codes/specification_files/bu.asn1"
+ASN1_SPECS_BU = "analysis_scripts/tl_preprocessor/gov_codes/specification_files/bu.asn1"
 
 conv = asn1tools.compile_files(ASN1_SPECS_BU)
 
