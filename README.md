@@ -11,16 +11,17 @@ Clone the repository and install the dependencies
 
 ```bash
 git clone https://github.com/larc-logs-transparentes/tdsc.git
-cd tdsc/logserver
-./setup.sh
+cd tdsc
+bash ./setup.sh
 ```
 
 
 ## Demo execution
 
-A fast demo execution. It will instanciate the Election Transparency modules and populate it with X poll tapes from the 2022 Brazilian Election. The user interface can be access through browser in localhost:80. 
+A fast demo execution. It will instanciate the Election Transparency modules and populate it with 74 poll tapes from the 2022 Brazilian Election. The user interface can be access through browser in localhost:80. 
 
 ```bash
+cd logserver
 docker compose up -d
 docker run --rm --network host --pull always ghcr.io/larc-logs-transparentes/bu-utils:gh-73
 ```
@@ -34,7 +35,7 @@ Evaluate the performance of the main verifications in Election Transparency (Tab
 Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours in DO-Premium-AMD with 8GB RAM.
 
 ```bash
-cd logserver
+cd logserver/test_operation_perfomance
 ./start.sh
 ```
 
@@ -42,50 +43,36 @@ cd logserver
 In another machine, install the dependencies and run the tests. It takes ~40 min in Intel Xeon 8168 with 4GB RAM with 50 samples.  Wait for the LogServer create all trees.
 
 ```bash
-# Install the dependencies
-cd client
-./setup.sh
-
 # activate the Python virtual environment. 
-source ./venv/bin/activate
+cd tdsc/
+source .venv/bin/activate
 
 #  Run the tests. Substitute the <Logserver-IP> with the IP of the LogServer.
-TL_MANAGER_URL=http://<LOGSERVER-IP>:8000 python3 test_verifications.py --sample_size=50
+cd client
+LOGSERVER_IP=<LOGSERVER-IP> python3 test_verifications.py --sample_size=50
 ```
 
 
 ## Test with 2022 Brazilian presidential elections 
 
-Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes.
+Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes. Evaluate the perfomance of operations (Table III).
 
 ##### Log Server
 Populate the LogServer with the ~500k poll tapes from the 2022 elections. It takes ~X hours in DO-Premium-AMD with 8GB RAM.
 
 ```bash
+# Reset docker compose state
 cd logserver
-./setup.sh
-
-# Reset old entries in tree
 docker compose down
 docker compose up -d
 
 # start script
-./populate-2022-elections.sh
-
-# download poll tapes (adapted from https://bit.ly/3NXoUyT)
-cd test-2022-elections
-./download-and-extract.sh
-
-# activate the Python virtual environment. 
-source ./venv/bin/activate
-
-# Insert poll tapes in the trees
-python populate_db.py
-./start.sh
+cd populate-2022-election
+bash ./start.sh
 ```
 
 ##### Client
-In another machine, install the dependencies and run the tests. It takes ~40 min in Intel Xeon 8168 with 4GB RAM with 50 samples.  Wait for the LogServer create all trees.
+In another machine, install the dependencies and run the tests. It takes ~X min in Intel Xeon 8168 with 4GB RAM.  Wait for the LogServer insert all poll tapes.
 
 ```bash
 cd logserver
