@@ -1,5 +1,6 @@
 client/.venv
 client/data
+client/analysis_scripts/res
 
 logserver/data/
 logserver/.venv

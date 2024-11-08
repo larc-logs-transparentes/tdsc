@@ -8,7 +8,6 @@ import datetime
 from tl_sum.src.service.json_utils import get_json_data_from_file, get_json_data_from_dir, print_dict
 from tl_sum.src.bu_functions import soma_votos
 from pathlib import Path
-# from tl_sum.tl_sum 
 
 
 
