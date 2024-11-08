@@ -82,7 +82,7 @@ def preprocess_bus(raw_bu_path, results_path):
         bu_jsons = get_bu_jsons(bu_object_file)
         create_preprocessed_bu_file(bu_object_file, bu_jsons, results_path)
         counter += 1
-        print(f"Preprocessando arquivos BU... {counter}/{len(bu_object_files)}", end="\r")
+        print(f"Preprocessing poll tapes... {counter}/{len(bu_object_files)}", end="\r")
         
 
         

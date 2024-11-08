@@ -1,7 +1,9 @@
 import requests
 import os
 
-TL_MANAGER_URL = os.getenv("TL_MANAGER_URL", "http://localhost:8080")
+LOGSERVER_IP = os.getenv("LOGSERVER_IP", "localhost")
+
+TL_MANAGER_URL = "http://" + LOGSERVER_IP + ":8000"
 
 
 def get_trees():

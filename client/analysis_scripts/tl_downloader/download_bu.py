@@ -6,9 +6,11 @@ import requests
 from analysis_scripts.utils.data_access_bu import get_all_local_tree_names
 
 
+LOGSERVER_IP = os.getenv("LOGSERVER_IP", "localhost")
 
-TL_MANAGER_URL = os.getenv("TL_MANAGER_URL", "http://localhost:8080/")
-BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8080/")
+TL_MANAGER_URL = "http://" + LOGSERVER_IP + ":8000/"
+BACKEND_URL =  "http://" + LOGSERVER_IP + ":8080/"
+
 
 # Constants
 DIR_DL_PATH_TREES = './data/trees/'
