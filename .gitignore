@@ -1,10 +1,10 @@
 client/.venv
 client/data
 
-
 logserver/data/
 logserver/.venv
 logserver/out.txt
+logserver/populate_2022_election/data
 
 .venv
 **/__pycache__/
