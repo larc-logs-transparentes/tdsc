@@ -117,7 +117,7 @@ def _print_progresso(qtd_bus_somados, qtd_bus_total, _filtro_aplicado=False):
     """
 
     if _filtro_aplicado:
-        print(f"Quantidade de BU somados: {qtd_bus_somados}     "
-              f"Quantidade de BU analisados: {qtd_bus_total}", end="\r")
+        print(f"Poll tapes added: {qtd_bus_somados}     "
+              f"Poll tapes analysed: {qtd_bus_total}", end="\r")
     else:
-        print(f"Quantidade de BU somados: {qtd_bus_somados}", end="\r")
+        print(f"Poll tapes analysed: {qtd_bus_somados}", end="\r")

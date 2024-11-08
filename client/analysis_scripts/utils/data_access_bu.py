@@ -5,7 +5,7 @@ import os
 from config import BACKEND_URL
 
 # Constants
-DIR_PATH_TREES = 'res/trees/'
+DIR_PATH_TREES = 'data/trees/'
 ERROR_FILE_NAME = "results_bu_verification.json"
 RESULTS_DIR_NAME = "../tl_verifier/results"
 
