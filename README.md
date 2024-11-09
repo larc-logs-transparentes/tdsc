@@ -40,7 +40,7 @@ cd logserver/test_operation_perfomance
 ```
 
 ##### Client
-In another machine, install the dependencies and run the tests. It takes ~40 min in Intel Xeon 8168 with 4GB RAM with 50 samples.  Wait for the LogServer create all trees.
+On another machine, install the dependencies and run the tests. It takes ~40 minutes on an Intel Xeon 8168 with 4GB RAM and 50 samples.  Wait for the LogServer to create all trees.
 
 ```bash
 # activate the Python virtual environment. 
@@ -55,10 +55,10 @@ LOGSERVER_IP=<LOGSERVER-IP> python3 test_verifications.py --sample_size=50
 
 ## Test with 2022 Brazilian presidential elections 
 
-Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes. Evaluate the perfomance of operations (Table III).
+Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes. Evaluate the performance of operations (Table III).
 
 ##### Log Server
-Populate the LogServer with the ~500k poll tapes from the 2022 elections. It takes ~X hours in DO-Premium-AMD with 8GB RAM.
+Populate the LogServer with the ~500k poll tapes from the 2022 elections. It takes ~18 hours in DO-Premium-AMD with 8GB RAM.
 
 ```bash
 # Reset docker compose state
@@ -72,11 +72,16 @@ bash ./start.sh
 ```
 
 ##### Client
-In another machine, install the dependencies and run the tests. It takes ~X min in Intel Xeon 8168 with 4GB RAM.  Wait for the LogServer insert all poll tapes.
+On another machine, install the dependencies and run the tests. It takes ~X min on an Intel Xeon 8168 with 4GB RAM. Wait for the LogServer to insert all poll tapes.
 
 ```bash
-cd logserver
-./start.sh
+# activate the Python virtual environment. 
+cd tdsc/
+source .venv/bin/activate
+
+#  Run the tests. Substitute the <Logserver-IP> with the IP of the LogServer.
+cd client
+LOGSERVER_IP=<LOGSERVER-IP> python3 test_analysis.py --sample_size=50
 ```
 
 ## 🖥️ Tested Environments
