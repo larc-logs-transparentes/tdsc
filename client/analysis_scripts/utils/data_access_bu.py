@@ -2,7 +2,10 @@ import json
 import requests
 import os
 
-BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8080/")
+LOGSERVER_IP = os.getenv("LOGSERVER_IP", "localhost")
+
+BACKEND_URL = "http://" + LOGSERVER_IP + ":8080/"
+
 
 # Constants
 DIR_PATH_TREES = 'data/trees/'
