@@ -1,5 +1,6 @@
 client/.venv
 client/data
+!client/data/.gitkeep
 client/analysis_scripts/data
 
 logserver/data/
