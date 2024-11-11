@@ -1,4 +1,3 @@
-# from tl_downloader.src.download_bu import download_bu, ask_user_which_election
 import time
 import pandas as pd
 from service.utils import *
