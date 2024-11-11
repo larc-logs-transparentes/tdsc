@@ -49,6 +49,7 @@ Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours i
 ```bash
 cd logserver
 docker compose up -d
+sleep 10
 
 cd populate_operation_performance
 bash ./start.sh
