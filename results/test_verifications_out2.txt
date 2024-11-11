@@ -1,0 +1,71 @@
+###########################################################################
+#                                                                         #
+#                           Test Verifications                            #
+#                                                                         #
+###########################################################################
+Test the performance of main verifications in Election Transparency
+sample_size=1000
+
+
+================ Verify data entry (inclusion proof) ================
+
+tree_1000
+mean: 0.125 ms
+std: 0.037 ms;  29.7 %
+median: 0.109 ms
+
+
+tree_10000
+mean: 0.120 ms
+std: 0.023 ms;  19.0 %
+median: 0.114 ms
+
+
+tree_100000
+mean: 0.129 ms
+std: 0.027 ms;  21.0 %
+median: 0.122 ms
+
+
+tree_500000
+mean: 0.133 ms
+std: 0.027 ms;  20.5 %
+median: 0.125 ms
+
+
+tree_1000000
+mean: 0.124 ms
+std: 0.023 ms;  18.4 %
+median: 0.120 ms
+
+===================== Verify tree consistency  ======================
+
+tree_1000
+mean: 14.405 ms
+std: 3.153 ms;  21.9 %
+median: 13.662 ms
+
+
+tree_10000
+mean: 14.582 ms
+std: 3.126 ms;  21.4 %
+median: 13.872 ms
+
+
+tree_100000
+mean: 15.635 ms
+std: 3.101 ms;  19.8 %
+median: 14.929 ms
+
+
+tree_500000
+mean: 24.470 ms
+std: 3.336 ms;  13.6 %
+median: 23.745 ms
+
+
+tree_1000000
+mean: 43.423 ms
+std: 3.375 ms;  7.8 %
+median: 42.665 ms
+

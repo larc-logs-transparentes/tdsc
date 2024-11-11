@@ -1,0 +1,102 @@
+###########################################################################
+#                                                                         #
+#                           Test Verifications                            #
+#                                                                         #
+###########################################################################
+Test the performance of main verifications in Election Transparency
+sample_size=50
+
+
+================ Verify data entry (inclusion proof) ================
+
+tree_1000
+mean: 0.118 ms
+std: 0.029 ms;  24.5 %
+median: 0.108 ms
+
+
+tree_10000
+mean: 0.147 ms
+std: 0.042 ms;  28.5 %
+median: 0.125 ms
+
+
+tree_100000
+mean: 0.149 ms
+std: 0.033 ms;  22.4 %
+median: 0.137 ms
+
+
+tree_500000
+mean: 0.155 ms
+std: 0.049 ms;  31.6 %
+median: 0.134 ms
+
+
+tree_1000000
+mean: 0.129 ms
+std: 0.018 ms;  13.6 %
+median: 0.128 ms
+
+===================== Verify tree consistency  ======================
+
+tree_1000
+mean: 14.947 ms
+std: 3.423 ms;  22.9 %
+median: 13.988 ms
+
+
+tree_10000
+mean: 15.243 ms
+std: 3.915 ms;  25.7 %
+median: 14.325 ms
+
+
+tree_100000
+mean: 15.593 ms
+std: 0.933 ms;  6.0 %
+median: 15.245 ms
+
+
+tree_500000
+mean: 25.611 ms
+std: 4.596 ms;  17.9 %
+median: 24.420 ms
+
+
+tree_1000000
+mean: 44.762 ms
+std: 5.634 ms;  12.6 %
+median: 43.655 ms
+
+===================== Verify build tree     =========================
+
+tree_1000
+mean: 17.785 ms
+std: 3.239 ms;  18.2 %
+median: 16.969 ms
+
+
+tree_10000
+mean: 231.253 ms
+std: 21.234 ms;  9.2 %
+median: 220.120 ms
+
+
+tree_100000
+mean: 2932.780 ms
+std: 34.481 ms;  1.2 %
+median: 2932.875 ms
+
+
+tree_500000
+mean: 17376.782 ms
+std: 103.773 ms;  0.6 %
+median: 17383.137 ms
+
+
+tree_1000000
+mean: 36559.412 ms
+std: 746.291 ms;  2.0 %
+median: 36431.997 ms
+

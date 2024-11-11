@@ -1,0 +1,29 @@
+###########################################################################
+#                                                                         #
+#                           Test Analysis                                #
+#                                                                         #
+###########################################################################
+Test the performance of main analysis in Election Transparency
+sample_size=50
+
+Test Download
+mean: 103260.319 ms
+std: 6634.174 ms;  6.4 %
+median: 100390.955 ms
+
+
+Test verify tree
+mean: 25204.845 ms
+std: 361.168 ms;  1.4 %
+median: 25189.040 ms
+
+
+Test preprocess
+mean: 201663.915 ms
+std: 1827.556 ms;  0.9 %
+median: 201522.718 ms
+
+Test tally
+mean: 30833.398 ms
+std: 537.758 ms;  1.7 %
+median: 31065.709 ms
