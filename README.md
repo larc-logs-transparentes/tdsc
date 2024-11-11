@@ -48,7 +48,7 @@ Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours o
 
 ```bash
 cd logserver/populate_operation_performance
-./start.sh
+bash ./start.sh
 ```
 
 ##### Client
