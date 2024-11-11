@@ -29,7 +29,7 @@ bash ./setup.sh
 
 ## Demo execution
 
-A fast demo execution. It will instanciate the Election Transparency modules and populate it with 74 poll tapes from the 2022 Brazilian Election. The user interface can be access through browser in localhost:3000. 
+A fast demo execution. It will instantiate the Election Transparency modules and populate them with 74 poll tapes from the 2022 Brazilian Election. The user interface can be accessed through the browser in localhost:3000. The interface communicates with the backend through port 8080.
 
 ```bash
 cd logserver
@@ -44,7 +44,7 @@ docker run --rm --network host --pull always ghcr.io/larc-logs-transparentes/bu-
 Evaluate the performance of the main verifications in Election Transparency (Table II).
 
 ##### Log Server
-Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours on the tested environment.
+Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours in the tested environment.
 
 ```bash
 cd logserver/populate_operation_performance
