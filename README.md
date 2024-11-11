@@ -9,7 +9,11 @@ Performance tests for Election Transparency prototype, a project to increase tra
 ## 📦 Requirements
 
 - 1 Ubuntu machine to act as the LogServer
+  - Tested environment:  DO-Premium-AMD, 2vCPU, 8GB RAM, Ubuntu 22.04 LTS, Docker version 27.3.1, Python 3.10.12
 - 1 Ubuntu machine to act as the Client
+  - Tested environment:  Intel Xeon Platinum 8168, 2vCPU, 4GB RAM, Ubuntu 22.04 LTS, Docker version 27.3.1, Python 3.10.12
+
+
 
 ## Setup
 
@@ -20,6 +24,7 @@ git clone https://github.com/larc-logs-transparentes/tdsc.git
 cd tdsc
 bash ./setup.sh
 ```
+
 
 
 ## Demo execution
@@ -38,7 +43,7 @@ docker run --rm --network host --pull always ghcr.io/larc-logs-transparentes/bu-
 Evaluate the performance of the main verifications in Election Transparency (Table II).
 
 ##### Log Server
-Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours in DO-Premium-AMD with 8GB RAM.
+Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours on the tested environment.
 
 ```bash
 cd logserver/test_operation_perfomance
@@ -46,7 +51,7 @@ cd logserver/test_operation_perfomance
 ```
 
 ##### Client
-On another machine, install the dependencies and run the tests. For 50 samples, it takes ~50 minutes on an Intel Xeon 8168 with 4GB RAM.  Wait for the LogServer to create all trees.
+On another machine, install the dependencies and run the tests. For 50 samples, it takes ~50 minutes on the tested environment.  Wait for the LogServer to create all trees.
 
 ```bash
 # activate the Python virtual environment. 
@@ -61,10 +66,10 @@ LOGSERVER_IP=<LOGSERVER-IP> python3 test_verifications.py --sample_size=50
 
 ## Test with 2022 Brazilian presidential elections 
 
-Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes. Evaluate the performance of operations (Table III).
+Recalculate the results of the 2022 Brazilian presidential elections using published poll tapes. Evaluate the performance of analysis operations (Table III).
 
 ##### Log Server
-Populate the LogServer with the ~500k poll tapes from the 2022 elections. It takes ~18 hours in DO-Premium-AMD with 8GB RAM.
+Populate the LogServer with the ~500k poll tapes from the 2022 elections. It takes ~18 hours on the tested environment.
 
 ```bash
 # Reset docker compose state
@@ -78,7 +83,7 @@ bash ./start.sh
 ```
 
 ##### Client
-On another machine, install the dependencies and run the tests. For 50 samples, it takes ~5 hrs on an Intel Xeon 8168 with 4GB RAM. Wait for the LogServer to insert all poll tapes.
+On another machine, install the dependencies and run the tests. For 50 samples, it takes ~5 hrs on the tested environment. Wait for the LogServer to insert all poll tapes.
 
 ```bash
 # activate the Python virtual environment. 
@@ -90,14 +95,13 @@ cd client
 LOGSERVER_IP=<LOGSERVER-IP> python3 test_analysis.py --sample_size=50
 ```
 
-## 🖥️ Tested Environments
+To print the results of 2022 Brazilian Elections, run the following script. It takes ~10min on the tested environment.
 
-##### Log Server
-Hardware: DO-Premium-AMD, 2vCPU, 8GB RAM
-Software: Ubuntu 22.04 LTS, Docker version 27.3.1, Python 3.10.12
+```bash
+#  Substitute the <Logserver-IP> with the IP of the LogServer.
+LOGSERVER_IP=<LOGSERVER-IP> python3 calculate_2022_results.py
+```
 
-##### Client
-Hardware: Intel Xeon Platinum 8168, 2vCPU, 4GB RAM
-Software: Ubuntu 22.04 LTS, Docker version 27.3.1, Python 3.10.12
+
 
 
