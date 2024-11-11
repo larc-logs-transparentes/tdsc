@@ -77,6 +77,7 @@ Populate the LogServer with the ~500k poll tapes from the 2022 elections. It tak
 cd logserver
 docker compose down
 docker compose up -d
+sleep 10
 
 # start script
 cd populate-2022-election
