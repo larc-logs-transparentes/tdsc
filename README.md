@@ -47,7 +47,7 @@ Evaluate the performance of the main verifications in Election Transparency (Tab
 Create the trees with 1k, 10k, 100k, 500k, and 1M of leaves. It takes ~2 hours on the tested environment.
 
 ```bash
-cd logserver/test_operation_perfomance
+cd logserver/populate_operation_performance
 ./start.sh
 ```
 
