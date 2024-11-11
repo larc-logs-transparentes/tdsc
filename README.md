@@ -34,6 +34,7 @@ A fast demo execution. It will instanciate the Election Transparency modules and
 ```bash
 cd logserver
 docker compose up -d
+sleep 10
 docker run --rm --network host --pull always ghcr.io/larc-logs-transparentes/bu-utils:gh-73
 ```
 
