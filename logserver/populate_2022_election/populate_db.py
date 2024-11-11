@@ -20,7 +20,7 @@ def send_file_to_backend(file_path: str):
 
 def read_bu_or_busa_files():
     files = [os.path.join(root, name)
-                for root, dirs, files in os.walk("../data/2_turno")
+                for root, dirs, files in os.walk("./data/2_turno")
                 for name in files if name.endswith((".bu", ".busa"))]
     
     if not files:
