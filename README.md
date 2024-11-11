@@ -1,13 +1,19 @@
 # Election Transparency
 
-<abstract>
+Performance tests for Election Transparency prototype, a project to increase transparency in elections.
 
-<Link to article>
 
+
+[Link to article]
+
+## 📦 Requirements
+
+- 1 Ubuntu machine to act as the LogServer
+- 1 Ubuntu machine to act as the Client
 
 ## Setup
 
-Clone the repository and install the dependencies
+In each machine, clone the repository and install the dependencies
 
 ```bash
 git clone https://github.com/larc-logs-transparentes/tdsc.git
@@ -40,7 +46,7 @@ cd logserver/test_operation_perfomance
 ```
 
 ##### Client
-On another machine, install the dependencies and run the tests. It takes ~40 minutes on an Intel Xeon 8168 with 4GB RAM and 50 samples.  Wait for the LogServer to create all trees.
+On another machine, install the dependencies and run the tests. For 50 samples, it takes ~50 minutes on an Intel Xeon 8168 with 4GB RAM.  Wait for the LogServer to create all trees.
 
 ```bash
 # activate the Python virtual environment. 
@@ -72,7 +78,7 @@ bash ./start.sh
 ```
 
 ##### Client
-On another machine, install the dependencies and run the tests. It takes ~X min on an Intel Xeon 8168 with 4GB RAM. Wait for the LogServer to insert all poll tapes.
+On another machine, install the dependencies and run the tests. For 50 samples, it takes ~5 hrs on an Intel Xeon 8168 with 4GB RAM. Wait for the LogServer to insert all poll tapes.
 
 ```bash
 # activate the Python virtual environment. 
