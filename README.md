@@ -29,7 +29,7 @@ bash ./setup.sh
 
 ## Demo execution
 
-A fast demo execution. It will instantiate the Election Transparency modules and populate them with 74 poll tapes from the 2022 Brazilian Election. The user interface can be accessed through the browser in localhost:3000. The interface communicates with the backend through port 8080.
+A fast demo execution. It will instantiate the Election Transparency modules and populate them with 74 poll tapes from the 2022 Brazilian Election. The user interface can be accessed through the browser in localhost:3000, and it communicates with the backend through port 8080.
 
 ```bash
 cd logserver
