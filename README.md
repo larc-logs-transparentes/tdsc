@@ -80,7 +80,7 @@ docker compose up -d
 sleep 10
 
 # start script
-cd populate-2022-election
+cd populate_2022_election
 bash ./start.sh
 ```
 
